@@ -1,0 +1,102 @@
+#include <iostream>
+#include <fstream>
+#include <boost/random.hpp>
+#include <boost/regex.hpp>
+#include <windows.h>
+#include <boost/thread.hpp>
+#include <boost/date_time.hpp>
+#pragma comment( linker, "/subsystem:\"windows\" /entry:\"mainCRTStartup\"" )
+
+int search(std::string inputStr, const char* expressRegex){
+
+    boost::regex e1(expressRegex);
+
+    std::string::const_iterator start, end;
+    start = inputStr.begin();
+    end = inputStr.end();
+
+    boost::match_results<std::string::const_iterator> what;
+    boost::match_flag_type flags = boost::match_default;
+
+    while(regex_search(start, end, what, e1, flags))
+    {
+        return 1;
+        start = what[0].second;
+    }
+    return 0;
+}
+
+
+int main(int argc,char *argv[]) {
+    boost::minstd_rand generator(time(0));
+    boost::uniform_int<> uni_dist(0, 0x9FFF);
+    boost::variate_generator<boost::minstd_rand, boost::uniform_int<> > uni(generator, uni_dist);
+    int x = uni();
+    int y = uni();
+    std::string c2exe=std::string("gcc \"").append(argv[1]).append("\" -o test1.exe");
+//    system(c2exe.c_str());// 编译m.c
+    std::string in1=std::string("echo.").append(std::to_string(x)).append("> input.txt ");
+    std::string in2=std::string("echo.").append(std::to_string(y)).append(">> input.txt");
+    std::ofstream batFile;
+    batFile.open("test.bat", std::ios::out);
+    if (!batFile)
+    {
+        throw -1;
+    }
+    batFile << "@echo off" << std::endl;
+    batFile << "echo 我爱中国" << std::endl;
+    batFile << c2exe << std::endl;// 编译m.c
+    batFile << in1 << std::endl;// 设置传入第一参数x
+    batFile << in2 << std::endl;// 设置传入第二参数y
+    batFile << "echo. >> input.txt" << std::endl;//负责干掉程序后面的等待
+    batFile << "echo. >> input.txt" << std::endl;//负责干掉程序后面的等待
+    batFile << "if exist test1.exe (" << std::endl;
+    batFile << "test1.exe < input.txt)" << std::endl;// 传参
+//    batFile <<"pause"<<std::endl;
+    batFile << "exit";// 清除缓存input.txt和编译后的文件test1.exe
+    batFile.close();
+
+    // 开始编译和跑m.c文件了
+    const boost::posix_time::ptime beginT = boost::posix_time::microsec_clock::local_time();//记录运行的开始时间
+    system("test.bat 2>&1 > output.txt");
+    const boost::posix_time::ptime endT = boost::posix_time::microsec_clock::local_time();//记录运行的结束时间
+
+    boost::posix_time::time_duration TT = endT-beginT;
+    auto tt = TT.total_milliseconds();
+    std::ifstream outFile;
+    outFile.open("output.txt", std::ios::in);
+    if (!outFile)
+    {
+        throw -1;
+    }
+    std::string data;
+    // 答案的正则表达式
+    std::string expRegex= std::string("(").append(std::to_string(x)).append("\\s{0,},\\s{0,}").append(std::to_string(y)).append(")");
+    //运算时间字符串
+    std::string time=std::string("编译&运行时间：").append(std::to_string(tt)).append("ms");
+
+    while (std::getline(outFile,data)) {
+        if (search(data, const_cast<char*>(expRegex.c_str()))) {
+            MessageBox(NULL,"测试成功",time.c_str(),MB_OK+48);
+            std::cout << "success!" << std::endl;
+            outFile.close();
+            system("del output.txt test.bat input.txt test1.exe");
+            return 0;
+        }
+        std::cout <<"fail: " << data << std::endl;
+    }
+    outFile.close();
+
+    MessageBox(NULL,"测试失败","你的C程序很糟糕",MB_OK+16);
+    system("del output.txt test.bat input.txt test1.exe");
+    return 1;
+}
+/*   m.c 内容
+ * #include <stdio.h>
+ * int main(){
+ *      int n,m;
+ *      scanf("%d%d",&n,&m);
+ *      printf("The Num is:%d,%d\n",n,m);
+ *      return 0;
+ *      }
+ */

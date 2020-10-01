@@ -1,0 +1,1 @@
+start /MIN ffplay "C:\Users\pc002\CLionProjects\boost_writefile\intro.mp4" -fs -autoexit
