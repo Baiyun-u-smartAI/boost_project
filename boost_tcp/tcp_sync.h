@@ -53,7 +53,7 @@ int server(int argc, char* argv[])
     return 0;
 }
 
-int server(int argc, char* argv[])
+int client(int argc, char* argv[])
 {
     try
     {
@@ -92,14 +92,6 @@ int server(int argc, char* argv[])
     }
     system("pause");
 }
-
-
-
-
-
-
-
-
 
 
 
