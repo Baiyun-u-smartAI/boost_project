@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="TCP_Client_Server"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\mingw64\;CMake Files\..\mingw64\boost1.71\;CMake Files\..\mingw64\boost1.71\boost\;CMake Files\..\mingw64\opencv\;CMake Files\..\mingw64\opencv\build\;CMake Files\..\mingw64\opencv\build\install\;CMake Files\..\mingw64\opencv\build\install\x64\;CMake Files\..\mingw64\opencv\build\install\x64\mingw\;CMake Files\..\mingw64\opencv\build\install\x64\mingw\lib\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="G:/tcp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="G:/mingw64/bin/mingw32-make.exe -f &quot;G:/tcp/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="G:/mingw64/bin/mingw32-make.exe -f &quot;G:/tcp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="G:/mingw64/bin/mingw32-make.exe -f &quot;G:/tcp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="G:/mingw64/bin/mingw32-make.exe -f &quot;G:/tcp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="G:/tcp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="G:/mingw64/bin/mingw32-make.exe -f &quot;G:/tcp/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="G:/mingw64/bin/mingw32-make.exe -f &quot;G:/tcp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="G:/mingw64/bin/mingw32-make.exe -f &quot;G:/tcp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="G:/mingw64/bin/mingw32-make.exe -f &quot;G:/tcp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TCP_Client_Server">
+				<Option output="G:/tcp/TCP_Client_Server.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="G:/tcp"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBOOST_ERROR_CODE_HEADER_ONLY"/>
+					<Add directory="G:/mingw64/boost1.71/boost/include/boost-1_71"/>
+					<Add directory="G:/mingw64/opencv/build/install/include"/>
+					<Add directory="g:\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/11.0.1/../../../../include/c++/11.0.1"/>
+					<Add directory="g:\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/11.0.1/../../../../include/c++/11.0.1/x86_64-w64-mingw32"/>
+					<Add directory="g:\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/11.0.1/../../../../include/c++/11.0.1/backward"/>
+					<Add directory="g:\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/11.0.1/include"/>
+					<Add directory="g:\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/11.0.1/../../../../include"/>
+					<Add directory="g:\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/11.0.1/include-fixed"/>
+					<Add directory="g:\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/11.0.1/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="G:/mingw64/bin/mingw32-make.exe -f &quot;G:/tcp/Makefile&quot;  VERBOSE=1 TCP_Client_Server"/>
+					<CompileFile command="G:/mingw64/bin/mingw32-make.exe -f &quot;G:/tcp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="G:/mingw64/bin/mingw32-make.exe -f &quot;G:/tcp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="G:/mingw64/bin/mingw32-make.exe -f &quot;G:/tcp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TCP_Client_Server/fast">
+				<Option output="G:/tcp/TCP_Client_Server.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="G:/tcp"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBOOST_ERROR_CODE_HEADER_ONLY"/>
+					<Add directory="G:/mingw64/boost1.71/boost/include/boost-1_71"/>
+					<Add directory="G:/mingw64/opencv/build/install/include"/>
+					<Add directory="g:\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/11.0.1/../../../../include/c++/11.0.1"/>
+					<Add directory="g:\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/11.0.1/../../../../include/c++/11.0.1/x86_64-w64-mingw32"/>
+					<Add directory="g:\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/11.0.1/../../../../include/c++/11.0.1/backward"/>
+					<Add directory="g:\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/11.0.1/include"/>
+					<Add directory="g:\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/11.0.1/../../../../include"/>
+					<Add directory="g:\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/11.0.1/include-fixed"/>
+					<Add directory="g:\mingw64\bin\../lib/gcc/x86_64-w64-mingw32/11.0.1/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="G:/mingw64/bin/mingw32-make.exe -f &quot;G:/tcp/Makefile&quot;  VERBOSE=1 TCP_Client_Server/fast"/>
+					<CompileFile command="G:/mingw64/bin/mingw32-make.exe -f &quot;G:/tcp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="G:/mingw64/bin/mingw32-make.exe -f &quot;G:/tcp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="G:/mingw64/bin/mingw32-make.exe -f &quot;G:/tcp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="G:/tcp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="G:/mingw64/bin/mingw32-make.exe -f &quot;G:/tcp/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="G:/mingw64/bin/mingw32-make.exe -f &quot;G:/tcp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="G:/mingw64/bin/mingw32-make.exe -f &quot;G:/tcp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="G:/mingw64/bin/mingw32-make.exe -f &quot;G:/tcp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="G:/tcp/main.cpp">
+			<Option target="TCP_Client_Server"/>
+		</Unit>
+		<Unit filename="G:/tcp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="G:/tcp/../mingw64/boost1.71/boost/BoostConfig.cmake">
+			<Option virtualFolder="CMake Files\..\mingw64\boost1.71\boost\"/>
+		</Unit>
+		<Unit filename="G:/tcp/../mingw64/opencv/build/install/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\mingw64\opencv\build\install\"/>
+		</Unit>
+		<Unit filename="G:/tcp/../mingw64/opencv/build/install/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\mingw64\opencv\build\install\"/>
+		</Unit>
+		<Unit filename="G:/tcp/../mingw64/opencv/build/install/x64/mingw/lib/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\mingw64\opencv\build\install\x64\mingw\lib\"/>
+		</Unit>
+		<Unit filename="G:/tcp/../mingw64/opencv/build/install/x64/mingw/lib/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\mingw64\opencv\build\install\x64\mingw\lib\"/>
+		</Unit>
+		<Unit filename="G:/tcp/../mingw64/opencv/build/install/x64/mingw/lib/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\mingw64\opencv\build\install\x64\mingw\lib\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
