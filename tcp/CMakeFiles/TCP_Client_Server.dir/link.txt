@@ -1,3 +1,0 @@
-G:\CMake\bin\cmake.exe -E remove -f CMakeFiles\TCP_Client_Server.dir/objects.a
-G:\mingw64\bin\ar.exe cr CMakeFiles\TCP_Client_Server.dir/objects.a @CMakeFiles\TCP_Client_Server.dir\objects1.rsp
-G:\mingw64\bin\g++.exe -fPIC -O -O1 -O2 -O3 -g   -Wl,--whole-archive CMakeFiles\TCP_Client_Server.dir/objects.a -Wl,--no-whole-archive  -o TCP_Client_Server.exe -Wl,--out-implib,libTCP_Client_Server.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\TCP_Client_Server.dir\linklibs.rsp

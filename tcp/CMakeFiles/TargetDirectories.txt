@@ -1,3 +1,0 @@
-G:/tcp/CMakeFiles/edit_cache.dir
-G:/tcp/CMakeFiles/TCP_Client_Server.dir
-G:/tcp/CMakeFiles/rebuild_cache.dir
